@@ -1,0 +1,11 @@
+{
+	"size":0,
+	"query":{
+		"term":{"borough":"brooklyn"}
+	},
+    "aggs":{
+        "cuisine":{
+            "terms":{ "field":"cuisine"}
+        }
+    }
+}

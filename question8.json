@@ -1,0 +1,29 @@
+{
+	"size":0,
+	"query":{
+		"bool":{
+			"must":[
+				{"match":{"cuisine":"italian"} },
+				{"match":{"borough":"Manhattan"} }
+			]
+		}
+	},
+	"aggs":{
+		"meilleur_resto":{
+			"terms":{"field":"name.keyword"},
+			"aggs":{  
+				"avg_score":{
+				"avg":{"field":"grades.score"}
+				},
+				"avg_bucket_sort":{
+					"bucket_sort":{
+						"sort":[
+							{"avg_score":{"order":"desc"} }
+						],
+						"size":1
+					}
+				}
+			}
+		}
+	}
+}

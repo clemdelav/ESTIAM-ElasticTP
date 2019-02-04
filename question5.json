@@ -1,0 +1,23 @@
+{
+   "query":{
+       "bool":{
+           "must":{
+	               "match":{"cuisine":"pizza"}
+            },
+            "filter":{
+                "geo_bounding_box":{
+                    "address.coord":{
+                        "top_left":{
+                            "lat":40.767889,
+                            "lon":-73.985751
+                        },
+                        "bottom_right":{
+                            "lat":40.752782,
+                            "lon":-73.977242
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

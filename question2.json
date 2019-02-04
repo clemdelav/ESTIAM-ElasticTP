@@ -1,0 +1,5 @@
+{
+	"query":{
+		"match":{"address.street":"8 Avenue"}
+	}
+}
